@@ -220,6 +220,9 @@
                                         <state key="normal" title="x">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="tappedMultiplicationButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="uXe-YM-Kbe"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uGJ-E4-y6Z">
                                         <rect key="frame" x="186.66666666666663" y="0.0" width="173.33333333333337" height="63"/>
@@ -228,6 +231,9 @@
                                         <state key="normal" title=":">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="tappedDivisionButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="7GS-Fh-W3X"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -251,10 +257,10 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="1+1=2" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="T2H-yn-nBB">
-                                <rect key="frame" x="5" y="49" width="380" height="124"/>
+                                <rect key="frame" x="5" y="49" width="380" height="134"/>
                                 <color key="backgroundColor" red="0.24527746819999999" green="0.53481305040000005" blue="0.58749136739999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="124" id="SrP-qE-k2E"/>
+                                    <constraint firstAttribute="height" constant="134" id="SrP-qE-k2E"/>
                                 </constraints>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
@@ -288,7 +294,7 @@
                             <constraint firstItem="ogr-Aw-e1h" firstAttribute="centerX" secondItem="eIh-hr-C95" secondAttribute="centerX" id="m6K-L5-mrP"/>
                             <constraint firstItem="T2H-yn-nBB" firstAttribute="top" secondItem="AWJ-Vl-uau" secondAttribute="top" constant="5" id="t2f-fi-PHM"/>
                             <constraint firstItem="AWJ-Vl-uau" firstAttribute="bottom" secondItem="qMj-Of-bCU" secondAttribute="bottom" constant="8" id="tNk-Dn-7ge"/>
-                            <constraint firstItem="isI-Gg-Iye" firstAttribute="top" secondItem="T2H-yn-nBB" secondAttribute="bottom" constant="15" id="tXY-qe-Lfb"/>
+                            <constraint firstItem="isI-Gg-Iye" firstAttribute="top" secondItem="T2H-yn-nBB" secondAttribute="bottom" constant="5" id="zbO-eM-PIk"/>
                         </constraints>
                     </view>
                     <connections>
