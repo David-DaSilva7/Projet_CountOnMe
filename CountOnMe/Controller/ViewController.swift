@@ -12,24 +12,26 @@ class ViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet var numberButtons: [UIButton]!
     
-    var elements: [String] {
+   lazy var calculator = Calculator(currentText: textView.text)
+    
+    fileprivate var elements: [String] {
         return textView.text.split(separator: " ").map { "\($0)" }
     }
     
     // Error check computed variables
-    var expressionIsCorrect: Bool {
-        return elements.last != "+" && elements.last != "-"
+    fileprivate var expressionIsCorrect: Bool {
+        return elements.last != "+" && elements.last != "-" && elements.last != "x" && elements.last != "/"
     }
     
-    var expressionHaveEnoughElement: Bool {
+    fileprivate var expressionHaveEnoughElement: Bool {
         return elements.count >= 3
     }
     
-    var canAddOperator: Bool {
-        return elements.last != "+" && elements.last != "-"
+    fileprivate var canAddOperator: Bool {
+        return elements.last != "+" && elements.last != "-" && elements.last != "x" && elements.last != "/"
     }
     
-    var expressionHaveResult: Bool {
+    fileprivate var expressionHaveResult: Bool {
         return textView.text.firstIndex(of: "=") != nil
     }
     
@@ -39,7 +41,15 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func tappedAllClearButton(_ sender: UIButton) {
+        calculator.clearAll()
+        textView.text = calculator.currentText
+    }
     
+    @IBAction func tappedClearLastEntryButton(_ sender: UIButton) {
+        calculator.clearLastEntry()
+        textView.text = calculator.currentText
+    }
     // View actions
     @IBAction func tappedNumberButton(_ sender: UIButton) {
         guard let numberText = sender.title(for: .normal) else {
@@ -85,7 +95,7 @@ class ViewController: UIViewController {
     
     @IBAction func tappedDivisionButton(_ sender: UIButton) {
         if canAddOperator {
-            textView.text.append(" ÷ ")
+            textView.text.append(" / ")
         } else {
             let alertVC = UIAlertController(title: "Zéro!", message: "Un operateur est déja mis !", preferredStyle: .alert)
             alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
@@ -111,25 +121,23 @@ class ViewController: UIViewController {
         
         // Iterate over operations while an operand still here
         while operationsToReduce.count > 1 {
-            let left = Int(operationsToReduce[0])!
+            let left = Double(operationsToReduce[0])!
             let operand = operationsToReduce[1]
-            let right = Int(operationsToReduce[2])!
-            
-            let result: Int
+            let right = Double(operationsToReduce[2])!
+    
+            let result: Double
             switch operand {
-            case "+": result = left + right
-            case "-": result = left - right
-            case "x": result = left * right
-            case "÷": result = left / right
+            case "+": result = Double(left + right)
+            case "-": result = Double(left - right)
+            case "x": result = Double( (left * right) )
+            case "/": result = Double(left / right)
             default: fatalError("Unknown operator !")
+                
             }
             
             operationsToReduce = Array(operationsToReduce.dropFirst(3))
             operationsToReduce.insert("\(result)", at: 0)
         }
-        
         textView.text.append(" = \(operationsToReduce.first!)")
     }
-
 }
-
