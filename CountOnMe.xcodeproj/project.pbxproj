@@ -16,6 +16,7 @@
 		1FA43BF3224E569A00F565CB /* SimpleCalcUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA43BF2224E569A00F565CB /* SimpleCalcUITests.swift */; };
 		C82229502645431E0049BC6A /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C822294F2645431E0049BC6A /* Calculator.swift */; };
 		C8222988265B7E970049BC6A /* Float+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8222987265B7E970049BC6A /* Float+Extension.swift */; };
+		C8BF2409265F8CC8004B601D /* UITextView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BF2408265F8CC8004B601D /* UITextView+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		1FA43BF4224E569A00F565CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C822294F2645431E0049BC6A /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 		C8222987265B7E970049BC6A /* Float+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float+Extension.swift"; sourceTree = "<group>"; };
+		C8BF2408265F8CC8004B601D /* UITextView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				C8222987265B7E970049BC6A /* Float+Extension.swift */,
+				C8BF2408265F8CC8004B601D /* UITextView+Extensions.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FA43BD5224E569900F565CB /* ViewController.swift in Sources */,
+				C8BF2409265F8CC8004B601D /* UITextView+Extensions.swift in Sources */,
 				1FA43BD3224E569900F565CB /* AppDelegate.swift in Sources */,
 				C8222988265B7E970049BC6A /* Float+Extension.swift in Sources */,
 				C82229502645431E0049BC6A /* Calculator.swift in Sources */,
