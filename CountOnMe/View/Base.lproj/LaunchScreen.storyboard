@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calculette" translatesAutoresizingMaskIntoConstraints="NO" id="wd8-ba-Kll">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchScreenIcon" translatesAutoresizingMaskIntoConstraints="NO" id="wd8-ba-Kll">
                                 <rect key="frame" x="45" y="272" width="300" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="wd8-ba-Kll" secondAttribute="height" multiplier="1:1" id="3Dh-bH-kge"/>
@@ -38,6 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="calculette" width="787" height="877"/>
+        <image name="launchScreenIcon" width="262.33334350585938" height="292.33334350585938"/>
     </resources>
 </document>

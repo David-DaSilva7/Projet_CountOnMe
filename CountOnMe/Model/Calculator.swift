@@ -165,7 +165,7 @@ class Calculator {
         }
 
         if let result = operations.first, let floatResult = Float(result) {
-            currentText.append(" = \(floatResult.clean)")
+            currentText.append(" = \(floatResult.removeZeroAfterComma)")
         }
 
         return (true, "")
