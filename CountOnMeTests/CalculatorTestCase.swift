@@ -24,14 +24,12 @@ class CalculatorTestCase: XCTestCase {
         XCTAssertFalse(calculator.expressionIsCorrect)
     }
 
-    // Clear all text and replace by 0
     func testGivenIsEmpty_WhenACButtonTapped_Then0ShouldBeDisplayed() {
         calculator.clearAll()
 
         XCTAssertEqual(calculator.currentText, "0")
     }
 
-    // Clear last entry
     func testGivenIs2Plus2_WhenCButtonTapped_Then2PlusShouldBeDisplayed() {
         calculator.currentText = "2 + 2"
 
@@ -40,7 +38,6 @@ class CalculatorTestCase: XCTestCase {
         XCTAssertEqual(calculator.currentText, "2 + ")
     }
 
-    // Add operator
     func testGivenIs0_WhenMultiplicationOperatorButtonTapped_Then0AndMultiplicationOperatorShouldBeDisplayed() {
         calculator.currentText = "0"
 
@@ -57,21 +54,19 @@ class CalculatorTestCase: XCTestCase {
         XCTAssertTrue(calculator.currentText == "2 + ")
     }
 
-    // Divided by 0
     func testGivenIs5DividedBy0_WhenIsImpossibleToDivideBooleanCalled_ThenIsImpossibleToDivideBooleanShouldReturnTrue() {
-        calculator.currentText = "5 ÷ 0"
+        calculator.currentText = "5 / 0"
 
         XCTAssertTrue(calculator.isImpossibleToDivide)
     }
 
     func testGivenIs1DividedBy0_WhenEqualButtonTapped_ThenValidityElementOfTupleShouldReturnFalse() {
-        calculator.currentText = "1 ÷ 0"
+        calculator.currentText = "1 / 0"
 
         XCTAssertEqual(calculator.calculate().validity, false)
         XCTAssertEqual(calculator.calculate().message, "Impossible de diviser par 0 !")
     }
 
-    // Add two operators consecutively
     func testGivenIs1Plus_WhenMinusOperatorButtonTapped_ThenCanAddOperatorBooleanShouldReturnFalse() {
         calculator.currentText = "1 + "
 
@@ -80,35 +75,34 @@ class CalculatorTestCase: XCTestCase {
         XCTAssertFalse(calculator.canAddOperator)
     }
 
-    // Check if expression already has a result
     func testGivenIs1Plus1Equal2_WhenExpressionHasResultBooleanCalled_ThenExpressionHasResultBooleanShouldReturnTrue() {
         calculator.currentText = "1 + 1 = 2"
 
         XCTAssertTrue(calculator.expressionHasResult)
     }
     
-//    func testGivenIs9MultipliedBy12Plus96DividedBy3Minus4_WhenEqualOperatorButtonTapped_Then136ResultShouldBeDisplayed() {
-//        calculator.currentText = "9 x 12 + 96 / 3 - 4"
-//
-//        _ = calculator.calculate()
-//
-//        XCTAssertTrue(calculator.currentText == "9 x 12 + 96 / 3 - 4 = 136" )
-//    }
+    func testGivenIs9MultipliedBy12Plus96DividedBy3Minus4_WhenEqualOperatorButtonTapped_Then136ResultShouldBeDisplayed() {
+        calculator.currentText = "9 × 12 + 96 / 3 - 4"
+
+        _ = calculator.calculate()
+
+        XCTAssertTrue(calculator.currentText == "9 × 12 + 96 / 3 - 4 = 136" )
+    }
     
     func testGivenAlreadyHasResult_WhenCButtonTapped_ThenResultShouldBeRemoved() {
-        calculator.currentText = "9 x 12 + 96 / 3 - 4 = 136"
+        calculator.currentText = "9 × 12 + 96 / 3 - 4 = 136"
         
         calculator.removeLastEntryOfCurrentText()
         
-        XCTAssertTrue(calculator.currentText == "9 x 12 + 96 / 3 - 4")
+        XCTAssertTrue(calculator.currentText == "9 × 12 + 96 / 3 - 4")
     }
     
     func testGivenHasExpressionWithSpaceAtEnd_WhenCButtonTapped_ThenExtraSpacingAnd2NumberShouldBeRemoved() {
-        calculator.currentText = "9 x 12"
+        calculator.currentText = "9 × 12"
         
         calculator.removeLastEntryOfCurrentText()
         
-        XCTAssertTrue(calculator.currentText == "9 x 1")
+        XCTAssertTrue(calculator.currentText == "9 × 1")
     }
     
     func testGivenCurrentTextEqualsTo0_WhenCButtonTapped_ThenClearLastEntryFunctionShouldReturn() {
@@ -116,7 +110,7 @@ class CalculatorTestCase: XCTestCase {
         
         calculator.removeLastEntryOfCurrentText()
         
-        XCTAssertTrue(calculator.currentText == "0")
+        XCTAssertTrue(calculator.currentText == "")
     }
     
     func testGivenCurrentTextEquals9Plus7_WhenEqualButtonTapped_ThenExpressionHasEnoughElementBooleanShouldReturnTrue() {
@@ -129,7 +123,7 @@ class CalculatorTestCase: XCTestCase {
         calculator.currentText = "9 +"
         
         XCTAssertEqual(calculator.calculate().validity, false)
-        XCTAssertEqual(calculator.calculate().message, "Veuillez démarrer un nouveau calcul.")
+        XCTAssertEqual(calculator.calculate().message, "Veuillez entrer une expression correcte.")
     }
     
     func testGivenCurrentTextEquals5Plus_WhenEqualButtonTapped_ThenExpressionIsCorrectBooleanShouldReturnFalse() {
@@ -162,5 +156,4 @@ class CalculatorTestCase: XCTestCase {
         
         XCTAssertTrue(calculator.currentText == "2")
     }
-
 }

@@ -5,7 +5,8 @@
 //  Created by David Da Silva on 07/05/2021.
 //  Copyright © 2021 Vincent Saluzzo. All rights reserved.
 //
-    
+import Foundation
+
 class Calculator {
     // MARK: - Internal properties
     var currentText = ""
@@ -47,6 +48,7 @@ class Calculator {
         currentText = "0"
     }
 
+    // Remove last element
     func removeLastEntryOfCurrentText() {
         if expressionHasResult {
             if let firstCharacterToTrim = currentText.firstIndex(of: "=") {
@@ -118,11 +120,12 @@ class Calculator {
         }
 
         var operations = elements
-        var result: Float = 0
+        var result: Double = 0
         var index = 0
 
         func executeOperation(_ signOperator: SignOperator) {
-            if let firstOperand = Float(operations[index-1]), let secondOperand = Float(operations[index+1]) {
+            if let firstOperand = Double(operations[index-1]),
+               let secondOperand = Double(operations[index+1]) {
                 switch signOperator {
                 case .addition:
                     result = firstOperand + secondOperand
@@ -163,9 +166,8 @@ class Calculator {
             }
             index += 1
         }
-
-        if let result = operations.first, let floatResult = Float(result) {
-            currentText.append(" = \(floatResult.removeZeroAfterComma)")
+        if let result = operations.first, let doubleResult = Double(result) {
+            currentText.append(" = \(doubleResult.removeZeroAfterComma)")
         }
 
         return (true, "")
@@ -182,5 +184,3 @@ class Calculator {
         case addition, substraction, multiplication, division
     }
 }
- 
-
